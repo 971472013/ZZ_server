@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+             http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+    <!--必须要有name属性，不能为空 -->
+    <persistence-unit name="ZZ">
+        <!--<provider>hibernate.ejb.HibernatePersistence</provider>-->
+        <!--<provider>org.hibernate.ejb.HibernatePersistence</provider>-->
+        <!--厂商的特定属性 -->
+        <jta-data-source>java:jboss/datasources/mysqlDS</jta-data-source>
+
+
+        <class>model.User</class>
+        <class>model.Show</class>
+        <class>model.Place</class>
+        <class>model.Manager</class>
+        <class>model.Order</class>
+        <class>model.Change</class>
+        <class>model.Change_m</class>
+        <class>model.Reduce</class>
+        <class>model.Un_Order</class>
+
+        <properties>
+            <!--配置Hibernate方言 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+            <!--自动输出schema创建DDL语句 -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
+
+            <property name="hibernate.transaction.jta.platform"
+                      value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
+        </properties>
+    </persistence-unit>
+
+</persistence>
